@@ -1,0 +1,16 @@
+#titulos {
+    border: solid black;
+    margin-bottom: 5px;
+}
+
+#filas {
+    margin-bottom: 5px;
+}
+
+#tabla {
+    text-align: center;
+}
+
+#boton {
+    margin: 10px;
+}
