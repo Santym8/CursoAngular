@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.component';
+import { CaracteristicasEmpleadoComponent } from './caracteristicas-empleado/caracteristicas-empleado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaEmpleadosComponent
+    ListaEmpleadosComponent,
+    CaracteristicasEmpleadoComponent
   ],
   imports: [
     BrowserModule,

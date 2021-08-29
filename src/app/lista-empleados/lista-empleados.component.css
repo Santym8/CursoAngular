@@ -1,16 +1,15 @@
-#titulos {
-    border: solid black;
-    margin-bottom: 5px;
-}
-
 #filas {
-    margin-bottom: 5px;
+    margin-bottom: 30px;
 }
 
 #tabla {
     text-align: center;
 }
 
-#boton {
-    margin: 10px;
+.caracteristica {
+    list-style: none;
+}
+
+.caracteristica:hover {
+    text-decoration: line-through;
 }
