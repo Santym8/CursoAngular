@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { ServicioMensajeService } from '../servicio-mensaje.service';
 
 @Component({
   selector: 'app-caracteristicas-empleado',
@@ -13,7 +14,7 @@ export class CaracteristicasEmpleadoComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor(private alerta:ServicioMensajeService) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,7 @@ export class CaracteristicasEmpleadoComponent implements OnInit {
   addCaracteristicas(){
     if(this.campoCaracteristica!=""){
       this.caracteristicasEmpleado.emit(this.campoCaracteristica);
+      this.alerta.muestraMensaje("Caracteristica "+ this.campoCaracteristica+ " agregada")
       this.campoCaracteristica ="";
     }
    

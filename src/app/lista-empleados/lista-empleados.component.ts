@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { EmpleadosService } from '../empleados.service';
 import { Empleado } from './empleado.model';
 
 @Component({
@@ -22,6 +23,8 @@ export class ListaEmpleadosComponent implements OnInit {
   eliminar(i:number){
     this.caracteristicas.splice(i, 1);
   }
+
+  constructor(private empleadoS: EmpleadosService){}
   
 
   ngOnInit(): void {

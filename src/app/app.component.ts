@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { EmpleadosService } from './empleados.service';
 import { Empleado } from './lista-empleados/empleado.model';
+import { ServicioMensajeService } from './servicio-mensaje.service';
 
 
 @Component({
@@ -12,26 +14,24 @@ export class AppComponent {
 
   listaEmpleados: Empleado[];
 
-  
+
   campoNombre: string = "";
   campoApellido: string = "";
   campoCargo: string = "";
   campoSalario: number = 0;
 
-  
-  constructor() {
-    this.listaEmpleados = [
-      new Empleado("Juan", "Diaz", "Presidente", 7000),
-      new Empleado("Santy", "Fierro", "Vicepresidente", 6000),
-      new Empleado("Pedro", "Alvarez", "Director", 5500),
-      new Empleado("Maria", "Diaz", "Directora", 5500),
-    ];
+
+  //Inyectar el servicio en el constructor
+  constructor(private alerta: ServicioMensajeService, private empleadoS: EmpleadosService) {
+    this.listaEmpleados = empleadoS.lista;
+
   }
 
   ngOnInit(): void {
   }
 
   vaciarCampos() {
+    
     this.campoNombre = "";
     this.campoApellido = "";
     this.campoCargo = "";
@@ -39,13 +39,17 @@ export class AppComponent {
   }
 
 
-  //Validar Datos
-  validarCampos():boolean{
-    return true;
+
+  EliminarEmpleado(i: number): void {
     
+    this.empleadoS.eliminarE(i);
   }
 
+  //Validar Datos
+  validarCampos(): boolean {
+    return true;
 
+  }
   CrearEmpleado(): void {
     if (this.validarCampos()) {
       let nuevoEmpleado: Empleado = new Empleado(
@@ -54,20 +58,21 @@ export class AppComponent {
         this.campoCargo,
         this.campoSalario
       );
-      this.listaEmpleados.push(nuevoEmpleado);
+
+      this.empleadoS.agregarEmpleado(nuevoEmpleado);
+      this.alerta.muestraMensaje("Empleado " + this.campoNombre + " creado");
       this.vaciarCampos();
-    }else{
+    } else {
       alert("Datos No Validos");
     }
-  }
 
-  EliminarEmpleado(indice: number): void {
-    this.listaEmpleados.splice(indice, 1);
   }
 
 
-  
-  
 
- 
+
+
+
+
+
 }
