@@ -12,7 +12,7 @@ export class ListaEmpleadosComponent implements OnInit {
   @Input() empleado:Empleado; //Esto es una variable
   @Input() listaEmpleados:Empleado[]; 
   @Input() i : number;
-  @Input() EliminarEmpleado:any;      //esto es una funcion
+  
   
   caracteristicas:string[] = [];
 
@@ -25,6 +25,12 @@ export class ListaEmpleadosComponent implements OnInit {
   }
 
   constructor(private empleadoS: EmpleadosService){}
+
+  
+  EliminarEmpleado(i: number): void {
+    
+    this.empleadoS.eliminarE(i);
+  }
   
 
   ngOnInit(): void {

@@ -40,10 +40,6 @@ export class AppComponent {
 
 
 
-  EliminarEmpleado(i: number): void {
-    
-    this.empleadoS.eliminarE(i);
-  }
 
   //Validar Datos
   validarCampos(): boolean {
