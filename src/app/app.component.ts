@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { EmpleadosService } from './empleados.service';
 import { Empleado } from './lista-empleados/empleado.model';
-import { ServicioMensajeService } from './servicio-mensaje.service';
+
 
 
 @Component({
@@ -22,12 +22,13 @@ export class AppComponent {
 
 
   //Inyectar el servicio en el constructor
-  constructor(private alerta: ServicioMensajeService, private empleadoS: EmpleadosService) {
-    this.listaEmpleados = empleadoS.lista;
-
+  constructor(private empleadoS: EmpleadosService) {
+    
   }
 
   ngOnInit(): void {
+    this.listaEmpleados = this.empleadoS.lista;
+
   }
 
   vaciarCampos() {
@@ -56,7 +57,6 @@ export class AppComponent {
       );
 
       this.empleadoS.agregarEmpleado(nuevoEmpleado);
-      this.alerta.muestraMensaje("Empleado " + this.campoNombre + " creado");
       this.vaciarCampos();
     } else {
       alert("Datos No Validos");
