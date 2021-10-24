@@ -15,9 +15,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent},
-  {path:'proyectos/', component:ProyectosComponent},
-  {path:'quienes-somos/', component:QuienesComponent},
-  {path:'contacto/', component:ContactoComponent},
+  {path:'proyectos', component:ProyectosComponent},
+  {path:'quienes-somos', component:QuienesComponent},
+  {path:'contacto', component:ContactoComponent},
 ]
 
 @NgModule({

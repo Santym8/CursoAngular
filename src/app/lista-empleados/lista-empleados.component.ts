@@ -10,7 +10,7 @@ import { Empleado } from './empleado.model';
 export class ListaEmpleadosComponent implements OnInit {
 
   @Input() empleado:Empleado; //Esto es una variable
-  @Input() listaEmpleados:Empleado[]; 
+
   @Input() i : number;
   
   
